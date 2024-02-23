@@ -5,7 +5,7 @@ const routes = require('./src/routes');
 const coinRoutes = require('./src/routes/coinRoutes');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 
 app.get("/", (req, res) => {
 	res.send("<h2>It's Working!</h2>");
