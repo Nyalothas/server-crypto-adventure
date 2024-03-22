@@ -6,4 +6,10 @@ const saveToDatabase = (DB) => {
 	});
 };
 
+const saveToDatabaseList = (DB) => {
+	fs.writeFileSync("./src/database/dbList.json", JSON.stringify(DB, null, 2), {
+		encoding: "utf-8",
+	});
+};
+
 module.exports = { saveToDatabase };
