@@ -1,5 +1,5 @@
 const DB = require("./dbList.json");
-const { saveToDatabase } = require("./utils");
+const { saveToDatabaseList } = require("./utils");
 
 const getAllCoins = () => {
 	return DB.coins;
@@ -20,7 +20,7 @@ const createNewCoin = (newCoin) => {
 		return;
 	}
 	DB.coins.push(newCoin);
-	saveToDatabase(DB);
+	saveToDatabaseList(DB);
 	return newCoin;
 };
 
@@ -36,7 +36,7 @@ const updateOneCoin = (coinId, changes) => {
 		...changes
 	};
 	DB.coins[indexForUpdate] = updatedCoin;
-	saveToDatabase(DB);
+	saveToDatabaseList(DB);
 	return updatedCoin;
 };
 
@@ -48,7 +48,7 @@ const deleteOneCoin = (coinId) => {
 		return;
 	}
 	DB.coins.splice(indexForDeletion, 1);
-	saveToDatabase(DB);
+	saveToDatabaseList(DB);
 };
 
 module.exports = {
