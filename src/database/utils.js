@@ -12,4 +12,4 @@ const saveToDatabaseList = (DB) => {
 	});
 };
 
-module.exports = { saveToDatabase };
+module.exports = { saveToDatabase, saveToDatabaseList };
