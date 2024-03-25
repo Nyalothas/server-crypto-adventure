@@ -60,12 +60,18 @@ const deleteOneCoin = (req, res) => {
 const buyOneCoin = (req,res) => {
 	const {
 		body,
-		params: { coinId },
+		params: { coinId }
 	} = req;
 	if (!coinId) {
 		return;
 	}
-	const updatedCoin = coinService.buyOneCoin(coinId, body);
+
+	if (!body.count) {
+		return;
+	}
+	const coin = {count: body.count};
+	
+	const updatedCoin = coinService.buyOneCoin(coinId, coin);
 	res.send({ status: "OK", data: updatedCoin });
 };
 
