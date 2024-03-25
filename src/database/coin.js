@@ -52,10 +52,29 @@ const deleteOneCoin = (coinId) => {
 	saveToDatabase(DB);
 };
 
+const buyOneCoin = (coinId, changes) => {
+	const indexForUpdate = DB.coins.findIndex(
+		(coin) => coin.id === coinId
+	);
+	if (indexForUpdate === -1) {
+		return;
+	}
+	const updatedCoin = {
+		...DB.coins[indexForUpdate],
+		...changes,
+		updatedAt: new Date().toLocaleString("en-US", { timeZone: "UTC" }),
+	};
+	DB.coins[indexForUpdate] = updatedCoin;
+	saveToDatabase(DB);
+	return updatedCoin;
+};
+
 module.exports = {
 	getAllCoins,
 	createNewCoin,
 	getOneCoin,
 	updateOneCoin,
 	deleteOneCoin,
+
+	buyOneCoin
 };
