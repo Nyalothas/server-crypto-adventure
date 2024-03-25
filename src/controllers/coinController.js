@@ -55,10 +55,26 @@ const deleteOneCoin = (req, res) => {
 	res.status(204).send({ status: "OK" });
 };
 
+
+// trade
+const buyOneCoin = (req,res) => {
+	const {
+		body,
+		params: { coinId },
+	} = req;
+	if (!coinId) {
+		return;
+	}
+	const updatedCoin = coinService.buyOneCoin(coinId, body);
+	res.send({ status: "OK", data: updatedCoin });
+};
+
 module.exports = {
 	getAllCoins,
 	getOneCoin,
 	createNewCoin,
 	updateOneCoin,
 	deleteOneCoin,
+
+	buyOneCoin
 };
