@@ -52,7 +52,7 @@ const deleteOneCoin = (coinId) => {
 	saveToDatabase(DB);
 };
 
-const buyOneCoin = (coinId, changes) => {
+const buyCoin = (coinId, changes) => {
 	const indexForUpdate = DB.coins.findIndex(
 		(coin) => coin.id === coinId
 	);
@@ -66,7 +66,14 @@ const buyOneCoin = (coinId, changes) => {
 	};
 	DB.coins[indexForUpdate] = updatedCoin;
 	saveToDatabase(DB);
-	return updatedCoin;
+
+	const returnedData = {
+		...changes,
+		name: DB.coins[indexForUpdate].name,
+		id: DB.coins[indexForUpdate].id
+	};
+
+	return returnedData;
 };
 
 module.exports = {
@@ -76,5 +83,5 @@ module.exports = {
 	updateOneCoin,
 	deleteOneCoin,
 
-	buyOneCoin
+	buyCoin
 };

@@ -12,4 +12,10 @@ const saveToDatabaseList = (DB) => {
 	});
 };
 
-module.exports = { saveToDatabase, saveToDatabaseList };
+const saveToUsersDatabase = (DB) => {
+	fs.writeFileSync("./src/database/dbUsers.json", JSON.stringify(DB, null, 2), {
+		encoding: "utf-8",
+	});
+};
+
+module.exports = { saveToDatabase, saveToDatabaseList, saveToUsersDatabase };

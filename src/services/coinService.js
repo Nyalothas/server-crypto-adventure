@@ -31,8 +31,8 @@ const deleteOneCoin = (coinId) => {
 	Coin.deleteOneCoin(coinId);
 };
 
-const buyOneCoin = (coinId, changes) => {
-	const updatedCoin = Coin.buyOneCoin(coinId, changes);
+const buyCoin = (coinId, changes) => {
+	const updatedCoin = Coin.buyCoin(coinId, changes);
 	return updatedCoin;
 };
 
@@ -43,5 +43,5 @@ module.exports = {
 	updateOneCoin,
 	deleteOneCoin,
 
-	buyOneCoin
+	buyCoin
 };

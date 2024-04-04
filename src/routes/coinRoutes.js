@@ -14,6 +14,6 @@ router.patch("/:coinId", coinController.updateOneCoin);
 router.delete("/:coinId", coinController.deleteOneCoin);
 
 // trade
-router.post("/trade/:coinId", coinController.buyOneCoin);
+router.post("/trade/:coinId", coinController.buyCoin);
 
 module.exports = router;
