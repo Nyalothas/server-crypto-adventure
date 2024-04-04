@@ -57,7 +57,7 @@ const deleteOneCoin = (req, res) => {
 
 
 // trade
-const buyOneCoin = (req,res) => {
+const buyCoin = (req,res) => {
 	const {
 		body,
 		params: { coinId }
@@ -71,8 +71,8 @@ const buyOneCoin = (req,res) => {
 	}
 	const coin = {count: body.count};
 	
-	const updatedCoin = coinService.buyOneCoin(coinId, coin);
-	res.send({ status: "OK", data: updatedCoin });
+	const updatedCoin = coinService.buyCoin(coinId, coin);
+	res.send(updatedCoin);
 };
 
 module.exports = {
@@ -82,5 +82,5 @@ module.exports = {
 	updateOneCoin,
 	deleteOneCoin,
 
-	buyOneCoin
+	buyCoin
 };
